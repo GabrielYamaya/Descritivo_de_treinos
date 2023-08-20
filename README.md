@@ -1,2 +1,2 @@
 # Descritivo_de_treinos
-alterado
+alteração feita no notebook e no computador.
