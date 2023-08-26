@@ -1,2 +1,3 @@
 # Descritivo_de_treinos
-alteração feita no notebook e no computador.
+Esse repositório é para um projeto ainda em desenvolvimento para descrição de treinos e coleta de resultados em um ambiente web, focado em um projeto para a equipe B'Energy Racing e seus usos.
+Este é meu primeiro projeto, portanto ainda estou desenvolvendo minhas habilidades e este repositório ainda não está completo, irei prenchê-lo e melhorá-lo conforme o seu desenvolvimento
