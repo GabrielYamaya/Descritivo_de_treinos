@@ -204,3 +204,216 @@ print(7 ^ 5)
 
 # %%
 print("Error não existe mais")
+
+# %% [markdown]
+# Operadores ternários
+
+# %%
+esta_chovendo = True
+'Hoje estou com as roupas ' + ('secas.', 'molhadas.')[esta_chovendo]
+'Hoje estou com as roupas ' + ('molhadas.' if esta_chovendo else 'secas.')
+
+# %% [markdown]
+# Operador de identidade
+
+# %%
+lista = [1, 2, 3, 'Ana', 'Carla']
+print(2 in lista)
+print('Ana' not in lista)
+
+# %% [markdown]
+# Operador de identidade
+
+# %%
+x = 3
+y = x
+z = 3
+print(x is y)
+print(y is z)
+print(z is not x)
+
+lista_a = [1, 2, 3]
+lista_b = lista_a
+lista_c = [1, 2, 3]
+
+print(lista_a is lista_b)
+print(lista_a is lista_c)
+print(lista_c is not lista_b)
+# %% [markdown]
+# Builtins
+
+# %%
+# esse é um módulo integrado do python que traz diversas funções
+# como o print, type, dir, help, entre outros.
+
+# %% [markdown]
+# Conversão de tipos
+
+# %%
+# Para converter em python basta utilizar uma função que leve
+# o nome do tipo com o valor a converter como parâmetro.
+
+print(2 + int('4'))
+print('Leia isso ' + str(59) + ' vezes')
+print(2 + float('4.5'))
+
+# detalhe que o valor a ser convertido precisa ser compatível.
+
+# %%
+# comando dir('tipo') exibe as possíveis funções que podem
+# ser realizadas com ela
+print(dir(int))
+
+5.0.is_integer()
+# %% [markdown]
+# Números
+
+# %%
+from decimal import Decimal, getcontext
+print(Decimal(1) / Decimal(7))
+
+getcontext().prec = 4
+print(Decimal(1) / Decimal(7))
+
+print(Decimal.max(Decimal(1), Decimal(7)))
+
+dir(Decimal)
+
+# %% [markdown]
+# Strings
+
+# %%
+dir(str)
+
+nome = 'Saulo Pereira'
+print(nome[0])
+print(nome[-1])
+print(nome[:3])
+print(nome[:-3])
+print(nome[3:])
+print(nome[-3:])
+print(nome[4:7])
+print(nome[1:14:2])  # [início : Final : Passo]
+print(nome[13:1:-2])
+# nome[0] = 'P' Dá erro esse comando, não é possível alterar uma String, somente a variável.
+
+# %%
+# Maneiras de acrescentar um '  ou " no meio da String
+"Dias D'Avila"
+'Dias D\'Avila'
+'Texto entre "aspas".'
+"Texto entre \"aspas\"."
+
+print("""Texto com múltiplas
+linhas""")
+print('''Texto com múltiplas
+linhas''')
+print("Texto com múltiplas\nLinhas")
+
+# %%
+frase = "Essa é uma frase de exemplo"
+print("es" in frase)
+print("Es" not in frase)
+
+print(len(frase))
+print(frase.lower())
+print(frase)
+
+frase = frase.upper()
+print(frase)
+
+print(frase.split())
+print(frase.split('A'))
+
+# dir(str)
+# help(str.center)
+
+# %% [markdown]
+#Lista
+
+# %%
+lista = []
+len(lista)
+lista.append(3)
+
+nova_lista = [2, 5.343, 'nome']
+nova_lista.remove(2) #remove o elemento com valor 2
+nova_lista.reverse()
+
+
+lista2 = [2, 4, 5, 'Gjwd', 'adwa']
+lista2.index(4)
+2 in lista
+lista2[2] #pega o indice 2
+lista2[-2] #funciona também
+lista2[1:3]
+lista[1:-1]
+dir(list)
+# funciona como na string, mas há metodos também
+
+# %% [markdown]
+dir(tupla)
+tupla = ('um')
+type(tupla)
+tupla = ('um', 2)
+type(tupla)
+
+tupla[1]
+
+tupla.count('um')
+
+# a principal diferença da tupla pra lista é que não dá para
+# alterar um valor dentro de uma tupla, somente sobreescrevê-lo
+# já na lista isso é possível 
+# %% [markdown]
+# Dicionários
+
+# %%
+pessoa = {'nome': 'Eduardo', 'idade': 32, 'cursos': ['da pra por outras', 'estruturas aqui']}
+pessoa['cursos']
+pessoa.keys()
+pessoa.values()
+pessoa.items()
+pessoa['cursos'].append('Aqui também')
+pessoa.pop('idade')
+pessoa.update({'idade': 40, 'sexo': 'M'})
+del pessoa['idade']
+pessoa.clear()
+pessoa
+# %% [markdown]
+# Conjunto
+
+# %%
+# não garante ordenação, não possue index e não armazena valores repetidos
+a = {1, 2, 3}
+a = set('codaaaarrr')
+{1, 2, 3} == {3, 1, 2, 1}
+
+# %%
+c1 = {1, 2}
+c2 = {2, 3}
+c1.union(c2)
+c1.intersection(c2)
+c1 - c2
+
+c1.update(c2)
+c2 <= c1 #subconjunto
+
+
+# %% [markdown]
+# Interpolação
+
+# %%
+from string import Template
+nome, idade = 'Ana', 39
+print('Nome: %s Idade: %d' % (nome, idade)) #mais antigo
+# %s espera uma String
+# %d espera um inteiro
+# %f espera um float, %.2f limita o número de casas
+
+print('Nome: {0} Idade: {1}'.format(nome, idade)) #Python < 3.6
+
+print(f'Nome: {nome} Idade: {idade}') #Python >= 3.6
+
+s = Template('Nome: $nome Idade: $idade')
+print(s.substitute(nome = nome, idade = idade))
